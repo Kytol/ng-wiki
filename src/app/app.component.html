@@ -19,7 +19,7 @@
           </div>
 
           <div class="hr-line-dashed"></div>
-          <!-- <div
+          <div
             *ngFor="let result of results | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalResults }"
             class="search-result mt-3">
             <a href="https://en.wikipedia.org/wiki?curid={{result.pageid}}"
@@ -29,20 +29,22 @@
               <a href="https://en.wikipedia.org/wiki?curid={{result.pageid}}">{{result.title}}</a>
             </h4>
 
-            <p [innerHtml]="result.snippet"> -->
-            <!-- </p> -->
+            <p [innerHtml]="result.snippet">
+              <!-- clear result text without html stuff  -->
+            </p>
             <p>
             </p>
           </div>
 
           <!-- If result is less that 10, display none -->
-          <!-- <div class="text-center" *ngIf="results.length > 10">
+          <div class="text-center" *ngIf="results.length > 10">
             <pagination-controls (pageChange)="page = $event"></pagination-controls>
-          </div> -->
+          </div>
 
 
         </div>
       </div>
     </div>
-  <!-- </div>
-</div> -->
+
+    
+    <!-- https://www.mediawiki.org/wiki/API:Search#JavaScript -->

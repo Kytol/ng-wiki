@@ -8,7 +8,8 @@ import { WikiService } from './wiki.service';
 export class AppComponent {
   title = 'ng-wiki';
   searchTerm:any;
-
+  totalResults:any;
+  page: number = 1;
   results:any = [];
 
   constructor(private wiki: WikiService){}
@@ -16,8 +17,9 @@ export class AppComponent {
 
   onSubmit(){
     console.log('this.searchTerm: ', this.searchTerm);
-
     this.wiki.search(this.searchTerm).subscribe((res:any)=>{
+      this.results = res.query.search
+      this.totalResults = res.query.search.length
       console.log(res)
     })
   }
